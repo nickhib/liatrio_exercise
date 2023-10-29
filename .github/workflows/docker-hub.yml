@@ -34,7 +34,7 @@ jobs:
           docker build --no-cache --force-rm -t nickhib1/liatrio_exercise:latest .
 
       - name: run tests
-        uses: liatrio/github-actions/apprentice-action@main
+        uses: liatrio/github-actions/apprentice-action@master
 
       - name: push to docker-hub
         run: |

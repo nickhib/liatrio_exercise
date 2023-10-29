@@ -32,9 +32,9 @@ jobs:
       - name: Build the Docker image
         run: |
           docker build --no-cache --force-rm -t nickhib1/liatrio_exercise:latest .
-          
+
       - name: run tests
-        uses: liatrio/github-actions/apprentice-action@master
+        uses: liatrio/github-actions/apprentice-action@main
 
       - name: push to docker-hub
         run: |

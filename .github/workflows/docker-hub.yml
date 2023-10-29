@@ -29,5 +29,5 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build --no-cache --force-rm -t $REGISTRY/$IMAGE_NAME:latest .
+          docker build --no-cache --force-rm -t nickhib1/liatrio_exercise:latest .
           docker push nickhib1/liatrio_exercise:latest

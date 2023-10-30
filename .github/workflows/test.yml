@@ -1,4 +1,4 @@
-name: Apprenticeship Interview Exercise
+name: Node.js Application Test
 
 on:
   push:
@@ -8,9 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18 # Use the Node.js version you need
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: .
 
       - name: Run Tests
         uses: liatrio/github-actions/apprentice-action@master

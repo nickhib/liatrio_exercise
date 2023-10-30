@@ -1,5 +1,4 @@
 name: Build and Push Docker Image to Docker Hub
-
 on:
   push:
     branches:
@@ -7,35 +6,30 @@ on:
   pull_request:
     branches:
       - main
-
 env:
   REGISTRY: docker.io
   IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
           driver-opts: network=host
-          
-
       - name: Log in to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-
+        run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{
+          secrets.DOCKER_HUB_PASSWORD }}
       - name: Build the Docker image
-        run: |
+        run: >
           docker build --no-cache --force-rm -t nickhib1/liatrio_exercise:latest .
+
           docker push nickhib1/liatrio_exercise:latest
       - name: Start Docker Container
         run: |
-          docker run -d -p nickhib1/liatrio_exercise:latest
+          docker run -d -p 80:80 your-docker-image-name
       - name: Wait for Container to Start
         run: |
           sleep 5000

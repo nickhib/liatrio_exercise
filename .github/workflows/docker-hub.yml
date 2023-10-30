@@ -28,4 +28,4 @@ jobs:
           docker push nickhib1/liatrio_exercise:latest
       - name: Start Docker Container
         run: |
-          docker run -d -p 80:80 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          docker run -d -p 80:80 nickhib1/liatrio_exercise:latest

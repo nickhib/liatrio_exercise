@@ -1,5 +1,4 @@
 name: Build and Push Docker Image to Docker Hub
-
 on:
   push:
     branches:
@@ -7,25 +6,19 @@ on:
   pull_request:
     branches:
       - main
-
 env:
   REGISTRY: docker.io
   IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
           driver-opts: network=host
-          
-
       - name: Log in to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
 
@@ -37,7 +30,6 @@ jobs:
         run: |
           docker run -d -p 80:80 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       - name: Wait for Container to Start
-
         run: |
           sleep 5000
         shell: bash

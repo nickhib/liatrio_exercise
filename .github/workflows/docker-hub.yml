@@ -32,7 +32,15 @@ jobs:
       - name: Build the Docker image
         run: |
           docker build --no-cache --force-rm -t nickhib1/liatrio_exercise:latest .
-
-      - name: push to docker-hub
-        run: |
           docker push nickhib1/liatrio_exercise:latest
+      - name: Start Docker Container
+        run: |
+          docker run -d -p 80:80 your-docker-image-name
+        ports:
+          - 80:80
+      - name: Wait for Container to Start
+        run: |
+          sleep 5
+        shell: bash
+      - name: Run Application Tests
+        uses: liatrio/github-actions/apprentice-action@master

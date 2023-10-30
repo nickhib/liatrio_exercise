@@ -33,7 +33,7 @@ jobs:
         run: |
           sleep 30
           response=$(curl -I -s -o /dev/null -w "%{http_code}" http://localhost:8080)
-          if [ "$response" 1== "200" ]; then
+          if [ "$response" == "200" ]; then
           echo "response on port 8080."
           else
           echo "no response on port 8080."

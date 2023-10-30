@@ -42,4 +42,4 @@ jobs:
           sleep 5000
         shell: bash
       - name: Run Application Tests
-        uses: liatrio/github-actions/apprentice-action@master
+          uses: liatrio/github-actions/apprentice-action@master

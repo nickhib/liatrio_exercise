@@ -31,7 +31,7 @@ jobs:
           docker run -d -p 8080:80 nickhib1/liatrio_exercise:latest
       - name: Check if the Docker container is listening
         run: |
-          response=$(curl -I -s -o /dev/null -w "%{http_code}" http://localhost:80)
+          response=$(curl -I -s -o /dev/null -w "%{http_code}" http://localhost:8080)
           if [ "$response" 1== "200" ]; then
           echo "response on port 8080."
           else

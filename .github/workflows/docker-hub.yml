@@ -35,10 +35,9 @@ jobs:
           docker push nickhib1/liatrio_exercise:latest
       - name: Start Docker Container
         run: |
-          docker run -d -p 80:80 nickhib1/liatrio_exercise:latest
+          docker run -d -p 8080:80 nickhib1/liatrio_exercise:latest
       - name: Wait for Container to Start
         run: |
-          sleep 5000
-        shell: bash
-      - name: Run Application Tests
-        uses: liatrio/github-actions/apprentice-action@master
+          sleep 10
+      - name: Run Application Test
+        uses: liatrio/github-actions/apprentice-action@96de01bdf2e62ab6f862fa0ab81d8825b6aab871

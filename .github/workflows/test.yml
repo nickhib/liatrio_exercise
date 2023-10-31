@@ -23,4 +23,4 @@ jobs:
         working-directory: .
 
       - name: Run Tests
-        uses: liatrio/github-actions/apprentice-action@master
+        uses: liatrio/github-actions/apprentice-action@604b4e04e06c0e98958e7960a4e7dbcc65ae948b

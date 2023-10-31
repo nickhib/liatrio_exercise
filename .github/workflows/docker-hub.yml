@@ -40,4 +40,4 @@ jobs:
         run: |
           sleep 10
       - name: Run Application Test
-        uses: liatrio/github-actions/apprentice-action@96de01bdf2e62ab6f862fa0ab81d8825b6aab871
+        uses: liatrio/github-actions/apprentice-action@604b4e04e06c0e98958e7960a4e7dbcc65ae948b

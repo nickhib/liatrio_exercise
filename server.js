@@ -7,7 +7,7 @@ const HOST = '0.0.0.0';
 const app = express();
 app.get('/', (req, res) => {
     const response = {
-        message: `My name is nick`,
+        message: `My name is nick hibbard`,
 
         timestamp: Date.now()
       };
